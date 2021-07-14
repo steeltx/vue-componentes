@@ -2,7 +2,7 @@
   <h3>Hey!</h3>
   <button @click="age++">Actualizar edad +1</button>
   <Greeting :age="age" />
-  <User :age="age" />
+  <User :age="age" @age-change="updateAge" />
 </template>
 
 <script>
@@ -18,6 +18,11 @@ export default {
   data(){
     return{
       age: 20
+    }
+  },
+  methods:{
+    updateAge(num){
+      this.age += num;
     }
   }
 };
